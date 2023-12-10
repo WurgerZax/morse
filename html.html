@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Morse Converter</title>
+  <style>
+    .input,.output,.screen{padding:10px;box-sizing:border-box;white-space:pre-wrap}body,html{height:100%;width:100%;margin:0}.wrapper{height:50%;width:100%;display:flex;justify-content:center;align-items:center;gap:50px}table{width:500px;border:1px solid #000;border-radius:10px}table thead{background-color:hsl(60 100% 81% / 1)}.symbol{width:20px}.code,.symbol{text-align:center}.decoderWrapper,.inputOutputWrapper{display:flex;align-items:center;gap:20px}.decoderWrapper{width:100%;justify-content:center}.decoder{height:200px;width:150px;border:2px solid #000;border-radius:20px;display:flex;flex-direction:column;justify-content:space-between;align-items:center;gap:5%}.screen{width:100%;height:33%;border:2px solid grey;border-radius:20px 20px 0 0}.decoder button{height:25px;width:50px;border-radius:10px;border:2px solid;background-color:#4c3fbf;cursor:pointer;color:wheat}#buttonClear,#buttonConfirm{width:25px;border-radius:50px}.extraButtonsWrapper{width:100%;display:flex;justify-content:space-around;margin-bottom:5%}.extraButtonsWrapper button{width:100px}#buttonClear{background-color:#ad1e1e}#buttonConfirm{background-color:#1ead8e}.input,.output{height:220px;width:300px;border:1px solid #000;border-radius:10px}.output{height:fit-content;min-height:220px;max-height:350px;overflow:auto}
+  </style>
+</head>
+
+<body>
+  <div class="wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th>Symbol</th>
+          <th>Code</th>
+          <th>Symbol</th>
+          <th>Code</th>
+          <th>Symbol</th>
+          <th>Code</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="symbol">A</td>
+          <td class="code">&#x2022 &#8212</td>
+          <td class="symbol">J</td>
+          <td class="code">&#x2022 &#8212 &#8212 &#8212</td>
+          <td class="symbol">S</td>
+          <td class="code">&#x2022 &#x2022 &#x2022</td>
+        </tr>
+        <tr>
+          <td class="symbol">B</td>
+          <td class="code">&#8212 &#x2022 &#x2022 &#x2022</td>
+          <td class="symbol">K</td>
+          <td class="code">&#8212 &#x2022 &#8212</td>
+          <td class="symbol">T</td>
+          <td class="code">&#8212</td>
+        </tr>
+        <tr>
+          <td class="symbol">C</td>
+          <td class="code">&#8212 &#x2022 &#8212 &#x2022</td>
+          <td class="symbol">L</td>
+          <td class="code">&#x2022 &#8212 &#x2022 &#x2022</td>
+          <td class="symbol">U</td>
+          <td class="code">&#x2022 &#x2022 &#8212</td>
+        </tr>
+        <tr>
+          <td class="symbol">D</td>
+          <td class="code">&#8212 &#x2022 &#x2022</td>
+          <td class="symbol">M</td>
+          <td class="code">&#8212 &#8212</td>
+          <td class="symbol">V</td>
+          <td class="code">&#x2022 &#x2022 &#x2022 &#8212</td>
+        </tr>
+        <tr>
+          <td class="symbol">E</td>
+          <td class="code">&#x2022</td>
+          <td class="symbol">N</td>
+          <td class="code">&#8212 &#x2022</td>
+          <td class="symbol">W</td>
+          <td class="code">&#x2022 &#8212 &#8212</td>
+        </tr>
+        <tr>
+          <td class="symbol">F</td>
+          <td class="code">&#x2022 &#x2022 &#8212 &#x2022</td>
+          <td class="symbol">O</td>
+          <td class="code">&#8212 &#8212 &#8212</td>
+          <td class="symbol">X</td>
+          <td class="code">&#8212 &#x2022 &#x2022 &#8212</td>
+        </tr>
+        <tr>
+          <td class="symbol">G</td>
+          <td class="code">&#8212 &#8212 &#x2022</td>
+          <td class="symbol">P</td>
+          <td class="code">&#x2022 &#8212 &#8212 &#x2022</td>
+          <td class="symbol">Y</td>
+          <td class="code">&#8212 &#x2022 &#8212 &#8212</td>
+        </tr>
+        <tr>
+          <td class="symbol">H</td>
+          <td class="code">&#x2022 &#x2022 &#x2022 &#x2022</td>
+          <td class="symbol">Q</td>
+          <td class="code">&#8212 &#8212 &#x2022 &#8212</td>
+          <td class="symbol">Z</td>
+          <td class="code">&#8212 &#8212 &#x2022 &#x2022</td>
+        </tr>
+        <tr>
+          <td class="symbol">I</td>
+          <td class="code">&#x2022 &#x2022</td>
+          <td class="symbol">R</td>
+          <td class="code">&#x2022 &#8212 &#x2022</td>
+        </tr>
+      </tbody>
+    </table>
+    <table>
+      <thead>
+        <tr>
+          <th>Symbol</th>
+          <th>Code</th>
+          <th>Symbol</th>
+          <th>Code</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="symbol">1</td>
+          <td class="code">&#x2022 &#8212 &#8212 &#8212 &#8212</td>
+          <td class="symbol">?</td>
+          <td class="code">&#x2022 &#x2022 &#8212 &#8212 &#x2022 &#x2022</td>
+        </tr>
+        <tr>
+          <td class="symbol">2</td>
+          <td class="code">&#x2022 &#x2022 &#8212 &#8212 &#8212</td>
+          <td class="symbol">!</td>
+          <td class="code">&#8212 &#x2022 &#8212 &#x2022 &#8212 &#8212</td>
+        </tr>
+        <tr>
+          <td class="symbol">3</td>
+          <td class="code">&#x2022 &#x2022 &#x2022 &#8212 &#8212</td>
+          <td class="symbol">.</td>
+          <td class="code">&#x2022 &#8212 &#x2022 &#8212 &#x2022 &#8212</td>
+        </tr>
+        <tr>
+          <td class="symbol">4</td>
+          <td class="code">&#x2022 &#x2022 &#x2022 &#x2022 &#8212</td>
+          <td class="symbol">,</td>
+          <td class="code">&#8212 &#8212 &#x2022 &#x2022 &#8212 &#8212</td>
+        </tr>
+        <tr>
+          <td class="symbol">5</td>
+          <td class="code">&#x2022 &#x2022 &#x2022 &#x2022 &#x2022</td>
+          <td class="symbol">;</td>
+          <td class="code">&#8212 &#x2022 &#8212 &#x2022 &#8212 &#x2022</td>
+        </tr>
+        <tr>
+          <td class="symbol">6</td>
+          <td class="code">&#8212 &#x2022 &#x2022 &#x2022 &#x2022</td>
+          <td class="symbol">:</td>
+          <td class="code">&#8212 &#8212 &#8212 &#x2022 &#x2022 &#x2022</td>
+        </tr>
+        <tr>
+          <td class="symbol">7</td>
+          <td class="code">&#8212 &#8212 &#x2022 &#x2022 &#x2022</td>
+          <td class="symbol">+</td>
+          <td class="code">&#x2022 &#8212 &#x2022 &#8212 &#x2022</td>
+        </tr>
+        <tr>
+          <td class="symbol">8</td>
+          <td class="code">&#8212 &#8212 &#8212 &#x2022 &#x2022</td>
+          <td class="symbol">-</td>
+          <td class="code">&#8212 &#x2022 &#x2022 &#x2022 &#x2022 &#8212</td>
+        </tr>
+        <tr>
+          <td class="symbol">9</td>
+          <td class="code">&#8212 &#8212 &#8212 &#8212 &#x2022</td>
+          <td class="symbol">/</td>
+          <td class="code">&#8212 &#x2022 &#x2022 &#8212 &#x2022</td>
+        </tr>
+        <tr>
+          <td class="symbol">0</td>
+          <td class="code">&#8212 &#8212 &#8212 &#8212 &#8212</td>
+          <td class="symbol">=</td>
+          <td class="code">&#8212 &#x2022 &#x2022 &#x2022 &#8212</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="inputOutputWrapper">
+      <div class="input" contenteditable="true"></div>
+      <div class="output"></div>
+    </div>
+  </div>
+  <div class="decoderWrapper">
+    <div class="decoder">
+      <div class="screen"></div>
+      <div class="buttonsWrapper">
+        <button>&#x2022</button>
+        <button>&#8212</button>
+      </div>
+      <div class="extraButtonsWrapper">
+        <button class="spaceButton">Space</button>
+        <button id="buttonConfirm"></button>
+        <button id="buttonClear"></button>
+      </div>
+    </div>
+    <div class="output"></div>
+  </div>
+  <script>"use strict";const t=document.querySelector(".inputOutputWrapper"),e=document.querySelector(".decoderWrapper .output"),n=["*","(",")"];let o=[],r=[];const c=document.querySelectorAll(".symbol"),i=document.querySelectorAll(".code");for(let t=0;t<c.length;t+=1)o[t]=c[t].textContent,r[t]=i[t].textContent;o=o.concat(n," "),r=r.concat(n,"|");const l=(n,o)=>{o?t.children[1].innerHTML=n.join("<span>   </span>"):e.textContent=n.join("")},u=t=>{const e=t.target.textContent.toUpperCase(),n=Array.from(e).map((t=>o.indexOf(t))).map((t=>r[t]));l(n,!0)};/*вводить текст можно не только в input и textarea*/t?.children[0].addEventListener("input",u);const d=document.querySelectorAll(".decoder button"),a=t=>{const n=t.split("_");for(let t=0;t<n.length;t+=1){const c=o[r.indexOf(r.find((e=>e===n[t].trim())))];if("Space"===n[0].trim()&&(e.innerHTML+='<b style="text-decoration: underline;"> </b>'),void 0===c)return;e.textContent+=c}},s=t=>{const n=document.querySelector(".screen");if("buttonClear"===t.target.getAttribute("id"))n.textContent="",e.textContent="";else if("buttonConfirm"===t.target.getAttribute("id"))a(n?.textContent),n.textContent="";else{if(n.textContent.length>8)return;"Space"===t.target.textContent&&(n.textContent=""),n.textContent+=t.target.textContent+" "}};d.forEach((t=>{t.addEventListener("click",s)}));</script>
+</body>
+
+</html>
